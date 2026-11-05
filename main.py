@@ -6,13 +6,11 @@ from fastapi import FastAPI
 from pydantic import BaseModel, Field
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Literal
+import os
+import joblib
 
-
-# 1. Load Machine Learning Model
-model = joblib.load(
-    r"C:\Users\MAJID MAJEED\OneDrive\Desktop\mentalheALTHPREDICTOR\Mental_Health_Model.pkl"
-)
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "Mental_Health_Model.pkl")
 
 # 2. Create FastAPI Application
 app = FastAPI()
