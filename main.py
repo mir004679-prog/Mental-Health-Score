@@ -13,7 +13,11 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 model_path = os.path.join(BASE_DIR, "Mental_Health_Model.pkl")
 
 # 2. Create FastAPI Application
-app = FastAPI()
+app = FastAPI(
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json"
+)
 
 
 # 3. Configure CORS Middleware
